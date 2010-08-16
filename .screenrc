@@ -1,0 +1,46 @@
+# source $HOME/.byobu/profile
+
+# terminfo and termcap for nice 256 color terminal
+# allow bold colors - necessary for some reason
+attrcolor b ".I" 
+
+# tell screen how to set colors. AB = background, AF=foreground 
+termcapinfo xterm 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm' 
+
+
+# erase background with current bg color 
+defbce on 
+
+#use audible bell
+vbell off
+
+autodetach on
+
+caption string "%w" 
+# hardstatus alwayslastline "%{bw}[%H] [%?%-Lw%?%{wb}%n*%f %t%{bw}%?%+Lw%?]%=%{bw} [%c:%s]" 
+hardstatus alwayslastline "%{bk}[%H] %?%-Lw%?%{wk}%n*%f %t%{bk}%?%+Lw%?%=%{bk} [%c:%s]" 
+# modified from http://lists.gnu.org/archive/html/screen-users/2007-08/msg00008.html
+  
+# Set the scrollback length:
+defscrollback 10000
+   
+# Select whether you want to see the copyright notice during startup:
+startup_message off
+
+
+# defhstatus "screen: ^En (^Et)"
+altscreen on
+
+# emulate .logout message
+pow_detach_msg "Screen session of $LOGNAME $:cr:$:nl:ended."
+
+# dynamic titles
+shelltitle '$ |bash'
+
+# bindings
+# bind h screen -t 'cd ~'
+# bind j screen -t 'cd ~/development'
+# bind k screen -t 'cd ~/production'
+# bind b screen -t 'cd ~/sandbox'
+# bind m screen -t 'cd ~/scripts'
+# bind M screen -t 'cd ~/sandbox'
