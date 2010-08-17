@@ -23,7 +23,8 @@ vim_org_scripts = [
   ["IndexedSearch",      "7062",  "plugin"],
   ["gist",               "12732", "plugin"],
   ["jquery",             "12107", "syntax"],
-  ["taglist", "7701",    "zip"]
+  ["taglist", "7701",    "zip"],
+  ["ColorSamplerPack", "12179", "zip"]
 ]
 
 require 'fileutils'
