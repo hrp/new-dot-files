@@ -1,0 +1,22 @@
+This is a fork of Infinite Red's excellent vim theme:
+
+http://blog.infinitered.com/entries/show/8
+
+Original author is Todd Werth.
+
+Forked and rearranged dirs to enable this to be fetched with the Tammer Saleh's excellent update_bundles script and Pathogen.vim:
+http://tammersaleh.com/posts/the-modern-vim-config-with-pathogen
+
+See zip-enabled version of update_bundles:
+http://gist.github.com/414542#file_update_bundles
+
+To use this, add the GIT url to update_bundles or manually drop the ir_black.vim file in here:
+
+  ~/.vim/colors/ir_black.vim
+
+And then add this line to your .vimrc:
+
+  :colorscheme ir_black
+
+By the way, it doesn't look bad on a white background, either.
+
