@@ -16,7 +16,8 @@ git_bundles = [
   "git://github.com/vim-ruby/vim-ruby.git",
   "git://repo.or.cz/vcscommand",
   "git://github.com/vim-bundles/fuzzyfinder.git",
-  "git://github.com/borgand/ir_black.git"
+  "git://github.com/borgand/ir_black.git",
+  "git://github.com/hrp/EnhancedCommentify.git"
 ]
 
 vim_org_scripts = [
@@ -57,4 +58,4 @@ vim_org_scripts.each do |name, script_id, script_type|
 end
 
 # Regenerate the helpfiles
-`vim -e -c .call pathogen#helptags(). -c q`
+`vim -e -c "call pathogen#helptags()" -c q`
