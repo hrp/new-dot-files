@@ -27,24 +27,16 @@ set hlsearch
 set t_Co=256
 colors wombat256
 
-
-
 " Commenting
 let g:EnhCommentifyRespectIndent = 'Yes'
 let g:EnhCommentifyPretty = 'Yes'
 " let g:EngCommentifyMultiPartBlocks = 'Yes'
 let g:EnhCommentifyUseBlockIndex = 'Yes'
 
-let g:NERDSpaceDelims=1
-let g:NERDRemoveExtraSpaces=1
-let g:NERDDefaultNesting=0
-
 
 " Obvious Mode
 set laststatus=2
 " let g:obviousModeInsertHi = 'term=reverse ctermbg=1'
-" let g:obviousModeCmdwinHi = 'term=bold ctermbg=1'
-
 
 " vsa dictionary
 set dictionary+=/home/hparmar/.vim/vsa_dict.txt
@@ -62,13 +54,22 @@ autocmd FileType c set omnifunc=ccomplete#Complete
 set hl=l:Visual
 
 " Open and close all the three plugins on the same time 
-nmap <F8>   :TrinityToggleAll<CR> 
+" nmap <F8>   :TrinityToggleAll<CR> 
 " Open and close the srcexpl.vim separately 
-nmap <F9>   :TrinityToggleSourceExplorer<CR> 
+" nmap <F9>   :TrinityToggleSourceExplorer<CR> 
 " Open and close the taglist.vim separately 
-nmap <F10>  :TrinityToggleTagList<CR> 
+" nmap <F10>  :TrinityToggleTagList<CR> 
 " Open and close the NERD_tree.vim separately 
-nmap <F11>  :TrinityToggleNERDTree<CR>
+" nmap <F11>  :TrinityToggleNERDTree<CR>
+
+" Set up toggles for Taglist and NERDTree
+nmap <F10>  :TlistToggle<CR> 
+nmap <F11>  :NERDTreeToggle<CR>
+
+let g:NERDSpaceDelims=1
+let g:NERDRemoveExtraSpaces=1
+let g:NERDDefaultNesting=0
+let g:NERDTreeWinPos = 'right'
 
 
 " Set paste mode
