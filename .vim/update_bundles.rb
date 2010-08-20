@@ -6,6 +6,7 @@ git_bundles = [
   "git://github.com/scrooloose/nerdtree.git",
   "git://github.com/tpope/vim-haml.git",
   "git://github.com/tpope/vim-markdown.git",
+  "http://github.com/tpope/vim-endwise.git",
   "git://github.com/tpope/vim-repeat.git",
   "git://github.com/tpope/vim-surround.git",
   "git://github.com/tpope/vim-vividchalk.git",
@@ -58,4 +59,4 @@ vim_org_scripts.each do |name, script_id, script_type|
 end
 
 # Regenerate the helpfiles
-`vim -e -c "call pathogen#helptags()" -c q`
+#  `vim -e -c "call pathogen#helptags()" -c q`
