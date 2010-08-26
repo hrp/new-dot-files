@@ -26,7 +26,9 @@ vim_org_scripts = [
   ["gist",               "12732", "plugin"],
   ["jquery",             "12107", "syntax"],
   ["taglist", "7701",    "zip"],
-  ["ColorSamplerPack", "12179", "zip"]
+  ["ScrollColor", "5966",    "plugin"],
+  ["ColorSamplerPack", "12179", "zip"],
+  ["YankRing", "13554", "zip"]
 ]
 
 require 'fileutils'
@@ -59,4 +61,4 @@ vim_org_scripts.each do |name, script_id, script_type|
 end
 
 # Regenerate the helpfiles
-#  `vim -e -c "call pathogen#helptags()" -c q`
+`vim -e -c "call pathogen#helptags()" -c q`

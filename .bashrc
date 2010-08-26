@@ -42,7 +42,7 @@ alias ls='ls --color=always -B'
 alias grep='grep --color=AUTO'
 
 # set default editor
-export EDITOR=vi
+export EDITOR=vim
 
 # Set the window title for screen
   case $TERM in
