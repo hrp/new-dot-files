@@ -18,6 +18,7 @@ git_bundles = [
   "git://repo.or.cz/vcscommand",
   "git://github.com/vim-bundles/fuzzyfinder.git",
   "git://github.com/borgand/ir_black.git",
+  "git://github.com/sukima/xmledit.git",
   "git://github.com/hrp/EnhancedCommentify.git"
 ]
 
