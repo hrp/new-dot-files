@@ -40,6 +40,7 @@ alias ls='ls --color=always -B'
 
 # force colors on grep
 alias grep='grep --color=AUTO'
+alias fgrep='fgrep --color=AUTO'
 
 # set default editor
 export EDITOR=vim
@@ -93,3 +94,10 @@ if [ -f "${SSH_ENV}" ]; then
 else
   start_agent;
 fi
+
+
+[[ -s $HOME/.rvm/scripts/rvm ]] && source $HOME/.rvm/scripts/rvm
+
+
+
+
