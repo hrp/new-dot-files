@@ -31,3 +31,4 @@ prompt
 
 echo ""
 fortune
+
