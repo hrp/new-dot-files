@@ -16,7 +16,11 @@ git_bundles = [
   "git://github.com/tsaleh/vim-tcomment.git",
   "git://github.com/vim-ruby/vim-ruby.git",
   "git://repo.or.cz/vcscommand",
-  "git://github.com/vim-bundles/fuzzyfinder.git",
+  #  "git://github.com/vim-bundles/fuzzyfinder.git",
+  "git://github.com/hrp/vim_colors.git",
+  "git://github.com/hrp/rainbow-parenthesis",
+  "git://github.com/mileszs/ack.vim.git",
+  "git://github.com/wincent/Command-T.git",
   "git://github.com/borgand/ir_black.git",
   "git://github.com/sukima/xmledit.git",
   "git://github.com/hrp/EnhancedCommentify.git"
@@ -61,5 +65,9 @@ vim_org_scripts.each do |name, script_id, script_type|
   end
 end
 
+# Build Command-T
+FileUtils.cd("Command-T")
+`rake make`
+
 # Regenerate the helpfiles
-`vim -e -c "call pathogen#helptags()" -c q`
+`/usr/local/bin/vim -e -c "call pathogen#helptags()" -c q`
