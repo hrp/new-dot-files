@@ -1,8 +1,8 @@
 set nocompatible
 
+" Use Pathogen to manage plugins
 filetype off
-
-call pathogen#helptags()
+" call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
 filetype plugin indent on
 
@@ -11,26 +11,45 @@ set backup
 set backupdir=~/tmp/.vim/backup,/tmp
 set directory=~/tmp/.vim/tmp
 
+" General settings
 syntax on
 set expandtab
+set autoindent
 set sts=2
 set shiftwidth=2
-set autoindent
 set scrolljump=5
 set scrolloff=3
-set ruler
 set backspace=2
+set ruler
 set number
+
+" Better searching
+set ignorecase
+set smartcase
+set incsearch
+set showmatch
 set hlsearch
+
+" Easy to clear searches
+nnoremap <leader><space> :noh<cr>
+
+" Turn on mouse support in xterm
+set mouse=a
+
+" Turn on relative number support
+set relativenumber
+
+" Turn on undo file
+" set undofile
 
 " Colors
 set t_Co=256
 colors wombat256
 
-" Commenting
+" Commenting with EnhancedCommentify
 let g:EnhCommentifyRespectIndent = 'Yes'
 let g:EnhCommentifyPretty = 'Yes'
-" let g:EngCommentifyMultiPartBlocks = 'Yes'
+let g:EngCommentifyMultiPartBlocks = 'Yes'
 let g:EnhCommentifyUseBlockIndex = 'Yes'
 
 
@@ -38,7 +57,7 @@ let g:EnhCommentifyUseBlockIndex = 'Yes'
 set laststatus=2
 " let g:obviousModeInsertHi = 'term=reverse ctermbg=1'
 
-" vsa dictionary
+" VSA dictionary for autocomplete
 set dictionary+=/home/hparmar/.vim/vsa_dict.txt
 
 " Omnifunc / Omnicomplete
@@ -71,12 +90,10 @@ let g:NERDRemoveExtraSpaces=1
 let g:NERDDefaultNesting=0
 let g:NERDTreeWinPos = 'right'
 
-
 " Set paste mode
 nnoremap <F12> :set invpaste paste?<CR>
 set pastetoggle=<F12>
 set showmode
-
 
 " When editing a file, always jump to the last known cursor position.
 " Don't do it when the position is invalid or when inside an event handler
@@ -85,7 +102,6 @@ autocmd BufReadPost *
   \ if line("'\"") > 0 && line("'\"") <= line("$") |
   \   exe "normal! g`\"" |
   \ endif
-
 
 " Attach 'run this file' with the shebang to F5
 au BufEnter *
@@ -101,8 +117,8 @@ endfun
 
 map <F5> :call CallInterpreter()<CR>
 
-
 " Get the hell out of insert mode
+"   with 'kj'
 " Turn off arrow keys 
 inoremap kj <Esc>
 inoremap <Left>  <NOP>

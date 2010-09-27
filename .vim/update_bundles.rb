@@ -2,6 +2,8 @@
 # Automated download and update of vim plugins
 # http://tammersaleh.com/posts/the-modern-vim-config-with-pathogen
 
+pathogen_url = "git://github.com/tpope/vim-pathogen.git"
+
 git_bundles = [ 
   "git://github.com/scrooloose/nerdtree.git",
   "git://github.com/tpope/vim-haml.git",
@@ -38,6 +40,9 @@ vim_org_scripts = [
 
 require 'fileutils'
 require 'open-uri'
+
+# assume this script is in ~/.vim
+#  `git clone #{pathogen_url}`
 
 bundles_dir = File.join(File.dirname(__FILE__), "bundle")
 

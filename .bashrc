@@ -24,7 +24,7 @@ alias mv='mv -i'
 alias ..='cd ..'
 
 # vim7 hackety hack
-alias vi=vim
+alias vi=/usr/local/bin/vim
 # alias vim7='~/tools/vim/bin/vim'
 # alias vi7='~/tools/vim/bin/vim'
 # alias vi='~/tools/vim/bin/vim'
@@ -64,7 +64,7 @@ PS1="${SCREENTITLE}${PS1}"
 
 # Path
 # PATH=.:$HOME/ruby/trunk/bin:$HOME/tools/git/git-1.7.0.5/:$PATH
-PATH=.:$PATH
+PATH=.:$PATH:/usr/local/bin
 export PATH
 
 
