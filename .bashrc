@@ -43,7 +43,7 @@ alias grep='grep --color=AUTO'
 alias fgrep='fgrep --color=AUTO'
 
 # set default editor
-export EDITOR=vim
+export EDITOR=/usr/local/bin/vim
 
 # Set the window title for screen
   case $TERM in
