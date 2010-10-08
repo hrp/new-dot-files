@@ -3,6 +3,7 @@
 # http://tammersaleh.com/posts/the-modern-vim-config-with-pathogen
 
 pathogen_url = "git://github.com/tpope/vim-pathogen.git"
+pathogen_dir = "vim-pathogen"
 
 git_bundles = [ 
   "git://github.com/scrooloose/nerdtree.git",
@@ -41,14 +42,20 @@ vim_org_scripts = [
 require 'fileutils'
 require 'open-uri'
 
-# assume this script is in ~/.vim
-#  `git clone #{pathogen_url}`
+#  assume this script is in ~/.vim
+puts "Trashing Pathogen (lookout!)"
+FileUtils.rm_rf pathogen_dir 
+FileUtils.rm_rf 'autoload'
+puts "  Unpacking Pathogen"
+`git clone #{pathogen_url} #{pathogen_dir}`
+FileUtils.cp_r "#{pathogen_dir}/.", '.'
+FileUtils.rm_rf pathogen_dir
 
 bundles_dir = File.join(File.dirname(__FILE__), "bundle")
 
 FileUtils.cd(bundles_dir)
 
-puts "Trashing everything (lookout!)"
+puts "Trashing all bundles (lookout!)"
 Dir["*"].each {|d| FileUtils.rm_rf d }
 
 git_bundles.each do |url|
