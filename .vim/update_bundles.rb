@@ -25,7 +25,7 @@ git_bundles = [
   "git://github.com/mileszs/ack.vim.git",
   "git://github.com/wincent/Command-T.git",
   "git://github.com/borgand/ir_black.git",
-  "git://github.com/sukima/xmledit.git",
+  #  "git://github.com/sukima/xmledit.git",
   "git://github.com/hrp/EnhancedCommentify.git"
 ]
 
@@ -36,6 +36,7 @@ vim_org_scripts = [
   ["taglist", "7701",    "zip"],
   ["ScrollColor", "5966",    "plugin"],
   ["ColorSamplerPack", "12179", "zip"],
+  ["xml", "14039", "ftplugin"],
   ["YankRing", "13554", "zip"]
 ]
 
