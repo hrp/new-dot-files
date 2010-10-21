@@ -5,39 +5,40 @@
 pathogen_url = "git://github.com/tpope/vim-pathogen.git"
 pathogen_dir = "vim-pathogen"
 
-git_bundles = [ 
-  "git://github.com/scrooloose/nerdtree.git",
-  "git://github.com/tpope/vim-haml.git",
-  "git://github.com/tpope/vim-markdown.git",
-  "http://github.com/tpope/vim-endwise.git",
-  "git://github.com/tpope/vim-repeat.git",
-  "git://github.com/tpope/vim-surround.git",
-  "git://github.com/tpope/vim-vividchalk.git",
-  "git://github.com/tsaleh/vim-align.git",
-  "git://github.com/tsaleh/vim-shoulda.git",
-  "git://github.com/ervandew/supertab.git",
-  "git://github.com/tsaleh/vim-tcomment.git",
-  "git://github.com/vim-ruby/vim-ruby.git",
-  "git://repo.or.cz/vcscommand",
-  #  "git://github.com/vim-bundles/fuzzyfinder.git",
-  "git://github.com/hrp/vim_colors.git",
-  "git://github.com/hrp/rainbow-parenthesis",
-  "git://github.com/mileszs/ack.vim.git",
-  "git://github.com/wincent/Command-T.git",
-  "git://github.com/borgand/ir_black.git",
-  #  "git://github.com/sukima/xmledit.git",
-  "git://github.com/hrp/EnhancedCommentify.git"
+git_bundles = %w[ 
+  git://github.com/scrooloose/nerdtree.git
+  git://github.com/tpope/vim-haml.git
+  git://github.com/tpope/vim-markdown.git
+  http://github.com/tpope/vim-endwise.git
+  git://github.com/tpope/vim-repeat.git
+  git://github.com/tpope/vim-surround.git
+  git://github.com/tpope/vim-vividchalk.git
+  git://github.com/tsaleh/vim-align.git
+  git://github.com/tsaleh/vim-shoulda.git
+  git://github.com/ervandew/supertab.git
+  git://github.com/tsaleh/vim-tcomment.git
+  git://github.com/vim-ruby/vim-ruby.git
+  git://repo.or.cz/vcscommand
+  git://github.com/hrp/vim_colors.git
+  git://github.com/hrp/rainbow-parenthesis
+  git://github.com/mileszs/ack.vim.git
+  git://github.com/wincent/Command-T.git
+  git://github.com/borgand/ir_black.git
+  git://github.com/vim-scripts/timestamp.vim.git
+  git://github.com/hrp/EnhancedCommentify.git
 ]
+  #  git://github.com/vim-bundles/fuzzyfinder.git,
+  #  git://github.com/sukima/xmledit.git,
 
 vim_org_scripts = [
-  ["IndexedSearch",      "7062",  "plugin"],
-  ["gist",               "12732", "plugin"],
-  ["jquery",             "12107", "syntax"],
-  ["taglist", "7701",    "zip"],
-  ["ScrollColor", "5966",    "plugin"],
-  ["ColorSamplerPack", "12179", "zip"],
-  ["xml", "14039", "ftplugin"],
-  ["YankRing", "13554", "zip"]
+  %w[IndexedSearch 7062  plugin],
+  %w[gist    12732 plugin],
+  %w[jquery  12107 syntax],
+  %w[taglist 7701  zip],
+  %w[ScrollColor 5966    plugin],
+  %w[ColorSamplerPack 12179 zip],
+  %w[xml 14039 ftplugin],
+  %w[YankRing 13554 zip]
 ]
 
 require 'fileutils'
