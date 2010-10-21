@@ -115,7 +115,11 @@ fun! CallInterpreter()
     endif
 endfun
 
-map <F5> :call CallInterpreter()<CR>
+" map <F5> :call CallInterpreter()<CR>
+
+" Add SVN Commit to F6 and SVN Info to F7
+map <F6> :VCSCommit<CR>
+map <F7> :VCSInfo<CR>
 
 " Get the hell out of insert mode
 "   with 'kj'
