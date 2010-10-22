@@ -37,7 +37,7 @@ nnoremap <leader><space> :noh<cr>
 set mouse=a
 
 " Turn on relative number support
-set relativenumber
+" set relativenumber
 
 " Turn on undo file
 " set undofile

@@ -26,9 +26,11 @@ git_bundles = %w[
   git://github.com/borgand/ir_black.git
   git://github.com/vim-scripts/timestamp.vim.git
   git://github.com/hrp/EnhancedCommentify.git
+  git://github.com/chrismetcalf/vim-autocomplpop.git
 ]
   #  git://github.com/vim-bundles/fuzzyfinder.git,
   #  git://github.com/sukima/xmledit.git,
+  #  git://github.com/vim-scripts/neocomplcache.git
 
 vim_org_scripts = [
   %w[IndexedSearch 7062  plugin],
