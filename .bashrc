@@ -63,8 +63,8 @@ export EDITOR=/usr/local/bin/vim
 PS1="${SCREENTITLE}${PS1}"
 
 # Path
-# PATH=.:$HOME/ruby/trunk/bin:$HOME/tools/git/git-1.7.0.5/:$PATH
 PATH=.:$PATH:/usr/local/bin
+PATH=$PATH:~/vsatools
 export PATH
 
 
