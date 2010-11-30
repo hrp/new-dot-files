@@ -35,6 +35,7 @@ alias vi=/usr/local/bin/vim
 # alias gem=gem19
 
 # force colors on ls
+alias lls='ls'
 alias lsb='ls --color=always'
 alias ls='ls --color=always -B'
 
@@ -64,7 +65,7 @@ PS1="${SCREENTITLE}${PS1}"
 
 # Path
 PATH=.:$PATH:/usr/local/bin
-PATH=$PATH:~/vsatools
+PATH=$PATH:~/vsatools/bin
 export PATH
 
 

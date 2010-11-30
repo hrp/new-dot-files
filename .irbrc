@@ -2,15 +2,15 @@ begin
   # load wirble
   require 'rubygems'
   require 'irbtools'
-  require 'irb_rocket'
+  #  require 'irb_rocket'
 
   #
   # For 1.8.4
   #
-  require 'wirble'
-  require 'ap'
-  Wirble.init
-  Wirble.colorize
+  #  require 'wirble'
+  #  require 'ap'
+  #  Wirble.init
+  #  Wirble.colorize
 
   %w{hpricot open-uri htmlentities time}.each {|x| require x}
    

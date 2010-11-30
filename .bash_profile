@@ -23,8 +23,9 @@ local CYAN="\[\033[0;36m\]"
 local GRAY="\[\033[0;37m\]"
 local BLUE="\[\033[0;34m\]"
 local YELLOW="\[\033[1;33m\]"
+PS1="${YELLOW}\w${CYAN} $ ${WHITE} "
 export PS1="
- ${YELLOW}\w${CYAN} $ ${WHITE} "
+${GRAY}\$(~/.rvm/bin/rvm-prompt i v) $PS1"
 }
 prompt
 

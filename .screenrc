@@ -17,7 +17,9 @@ vbell off
 autodetach on
 
 caption string "%w" 
+#  backtick 1 30 30 rvm-prompt
 # hardstatus alwayslastline "%{bw}[%H] [%?%-Lw%?%{wb}%n*%f %t%{bw}%?%+Lw%?]%=%{bw} [%c:%s]" 
+#  hardstatus alwayslastline "%{bk}[%H] %?%-Lw%?%{wk}%n*%f %t%{bk}%?%+Lw%?%=%{bk} %1` [%c:%s]" 
 hardstatus alwayslastline "%{bk}[%H] %?%-Lw%?%{wk}%n*%f %t%{bk}%?%+Lw%?%=%{bk} [%c:%s]" 
 # modified from http://lists.gnu.org/archive/html/screen-users/2007-08/msg00008.html
   

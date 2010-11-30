@@ -27,6 +27,7 @@ git_bundles = %w[
   git://github.com/vim-scripts/timestamp.vim.git
   git://github.com/hrp/EnhancedCommentify.git
   git://github.com/chrismetcalf/vim-autocomplpop.git
+  git://github.com/tpope/vim-rails.git
 ]
   #  git://github.com/vim-bundles/fuzzyfinder.git,
   #  git://github.com/sukima/xmledit.git,
