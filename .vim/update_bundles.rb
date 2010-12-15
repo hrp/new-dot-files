@@ -29,6 +29,7 @@ git_bundles = %w[
   git://github.com/chrismetcalf/vim-autocomplpop.git
   git://github.com/tpope/vim-rails.git
 ]
+  #  git://github.com/skammer/vim-css-color.git
   #  git://github.com/vim-bundles/fuzzyfinder.git,
   #  git://github.com/sukima/xmledit.git,
   #  git://github.com/vim-scripts/neocomplcache.git
@@ -41,6 +42,7 @@ vim_org_scripts = [
   %w[ScrollColor 5966    plugin],
   %w[ColorSamplerPack 12179 zip],
   %w[xml 14039 ftplugin],
+  %w[Rename 7262 plugin],
   %w[YankRing 13554 zip]
 ]
 
