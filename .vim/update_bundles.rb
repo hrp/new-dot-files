@@ -28,6 +28,7 @@ git_bundles = %w[
   git://github.com/hrp/EnhancedCommentify.git
   git://github.com/chrismetcalf/vim-autocomplpop.git
   git://github.com/tpope/vim-rails.git
+  git://github.com/trapd00r/neverland-vim-theme.git
 ]
   #  git://github.com/skammer/vim-css-color.git
   #  git://github.com/vim-bundles/fuzzyfinder.git,
@@ -48,13 +49,15 @@ vim_org_scripts = [
 
 require 'fileutils'
 require 'open-uri'
+require 'colorize'
+
 
 #  assume this script is in ~/.vim
-puts "Trashing Pathogen (lookout!)"
+puts "Trashing Pathogen (lookout!)".red
 FileUtils.rm_rf pathogen_dir 
 FileUtils.rm_rf 'autoload'
-puts "  Unpacking Pathogen"
-`git clone #{pathogen_url} #{pathogen_dir}`
+puts "  Unpacking Pathogen".blue
+`git clone #{pathogen_url} #{pathogen_dir}`.magenta
 FileUtils.cp_r "#{pathogen_dir}/.", '.'
 FileUtils.rm_rf pathogen_dir
 
@@ -62,18 +65,18 @@ bundles_dir = File.join(File.dirname(__FILE__), "bundle")
 
 FileUtils.cd(bundles_dir)
 
-puts "Trashing all bundles (lookout!)"
+puts "Trashing all bundles (lookout!)".red
 Dir["*"].each {|d| FileUtils.rm_rf d }
 
 git_bundles.each do |url|
   dir = url.split('/').last.sub(/\.git$/, '')
-  puts "  Unpacking #{url} into #{dir}"
-  `git clone -q #{url} #{dir}`
+  puts "  Unpacking #{url} into #{dir}".blue
+  `git clone -q #{url} #{dir}`.magenta
   FileUtils.rm_rf(File.join(dir, ".git"))
 end
 
 vim_org_scripts.each do |name, script_id, script_type|
-  puts "  Downloading #{name}"
+  puts "  Downloading #{name}".cyan
   local_file = File.join(name, script_type, "#{name}.#{script_type == 'zip' ? 'zip' : 'vim'}")
   FileUtils.mkdir_p(File.dirname(local_file))
   File.open(local_file, "w") do |file|
