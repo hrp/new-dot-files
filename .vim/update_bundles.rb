@@ -68,7 +68,7 @@ Dir["*"].each {|d| FileUtils.rm_rf d }
 git_bundles.each do |url|
   dir = url.split('/').last.sub(/\.git$/, '')
   puts "  Unpacking #{url} into #{dir}"
-  `git clone #{url} #{dir}`
+  `git clone -q #{url} #{dir}`
   FileUtils.rm_rf(File.join(dir, ".git"))
 end
 

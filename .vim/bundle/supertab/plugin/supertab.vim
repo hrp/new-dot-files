@@ -2,7 +2,7 @@
 "   Original: Gergely Kontra <kgergely@mcl.hu>
 "   Current:  Eric Van Dewoestine <ervandew@gmail.com> (as of version 0.4)
 "   Please direct all correspondence to Eric.
-" Version: 1.2
+" Version: 1.3
 " GetLatestVimScripts: 1643 1 :AutoInstall: supertab.vim
 "
 " Description: {{{
@@ -14,7 +14,7 @@
 " }}}
 "
 " License: {{{
-"   Copyright (c) 2002 - 2010
+"   Copyright (c) 2002 - 2011
 "   All rights reserved.
 "
 "   Redistribution and use of this software in source and binary forms, with
@@ -82,12 +82,22 @@ set cpo&vim
     let g:SuperTabRetainCompletionDuration = 'insert'
   endif
 
-  if !exists("g:SuperTabMidWordCompletion")
-    let g:SuperTabMidWordCompletion = 1
+  if !exists("g:SuperTabNoCompleteBefore")
+    " retain backwards compatability
+    if exists("g:SuperTabMidWordCompletion") && !g:SuperTabMidWordCompletion
+      let g:SuperTabNoCompleteBefore = ['\k']
+    else
+      let g:SuperTabNoCompleteBefore = []
+    endif
   endif
 
-  if !exists("g:SuperTabLeadingSpaceCompletion")
-    let g:SuperTabLeadingSpaceCompletion = 0
+  if !exists("g:SuperTabNoCompleteAfter")
+    " retain backwards compatability
+    if exists("g:SuperTabLeadingSpaceCompletion") && g:SuperTabLeadingSpaceCompletion
+      let g:SuperTabNoCompleteAfter = []
+    else
+      let g:SuperTabNoCompleteAfter = ['\s']
+    endif
   endif
 
   if !exists("g:SuperTabMappingForward")
@@ -204,18 +214,6 @@ endfunction " }}}
 " s:Init {{{
 " Global initilization when supertab is loaded.
 function! s:Init()
-  augroup supertab_init
-    autocmd!
-    autocmd BufEnter * call <SID>InitBuffer()
-  augroup END
-
-  " ensure InitBuffer gets called for the first buffer, after the ftplugins
-  " have been called.
-  augroup supertab_init_first
-    autocmd!
-    autocmd FileType <buffer> call <SID>InitBuffer()
-  augroup END
-
   " Setup mechanism to restore original completion type upon leaving insert
   " mode if configured to do so
   if g:SuperTabRetainCompletionDuration == 'insert'
@@ -239,6 +237,13 @@ function! s:InitBuffer()
 
   " init hack for <c-x><c-v> workaround.
   let b:complCommandLine = 0
+
+  if !exists('b:SuperTabNoCompleteBefore')
+    let b:SuperTabNoCompleteBefore = g:SuperTabNoCompleteBefore
+  endif
+  if !exists('b:SuperTabNoCompleteAfter')
+    let b:SuperTabNoCompleteAfter = g:SuperTabNoCompleteAfter
+  endif
 
   let b:SuperTabDefaultCompletionType = g:SuperTabDefaultCompletionType
 
@@ -309,11 +314,9 @@ endfunction " }}}
 " previous entry in a completion list, and determines whether or not to simply
 " retain the normal usage of <tab> based on the cursor position.
 function! s:SuperTab(command)
-  if s:WillComplete()
-    " rare case where no autocmds have fired for this buffer to initialize the
-    " supertab vars.
-    call s:InitBuffer()
+  call s:InitBuffer()
 
+  if s:WillComplete()
     " optionally enable enhanced longest completion
     if g:SuperTabLongestEnhanced && &completeopt =~ 'longest'
       call s:EnableLongestEnhancement()
@@ -422,6 +425,10 @@ endfunction " }}}
 " s:WillComplete() {{{
 " Determines if completion should be kicked off at the current location.
 function! s:WillComplete()
+  if pumvisible()
+    return 1
+  endif
+
   let line = getline('.')
   let cnum = col('.')
 
@@ -430,24 +437,22 @@ function! s:WillComplete()
     return 0
   endif
 
-  " Leading space.
-  if !g:SuperTabLeadingSpaceCompletion
-    let prev_char = strpart(line, cnum - 2, 1)
-    if prev_char =~ '^\s*$'
+  " honor SuperTabNoCompleteAfter
+  let pre = line[:cnum - 2]
+  for pattern in b:SuperTabNoCompleteAfter
+    if pre =~ pattern . '$'
       return 0
     endif
-  endif
+  endfor
 
+  " honor SuperTabNoCompleteBefore
   " Within a word, but user does not have mid word completion enabled.
-  let next_char = strpart(line, cnum - 1, 1)
-  if !g:SuperTabMidWordCompletion && next_char =~ '\k'
-    return 0
-  endif
-
-  " In keyword completion mode and no preceding word characters.
-  "if (b:complType == "\<c-n>" || b:complType == "\<c-p>") && prev_char !~ '\k'
-  "  return 0
-  "endif
+  let post = line[cnum - 1:]
+  for pattern in b:SuperTabNoCompleteBefore
+    if post =~ '^' . pattern
+      return 0
+    endif
+  endfor
 
   return 1
 endfunction " }}}
@@ -504,9 +509,12 @@ function! s:ReleaseKeyPresses()
     for [key, rhs] in items(b:captured)
       if rhs != ''
         let args = substitute(rhs, '.*\(".\{-}"\).*', '\1', '')
-        let args = substitute(args, '<', '<lt>', 'g')
-        let expr = substitute(rhs, '\(.*\)".\{-}"\(.*\)', '\1%s\2', '')
-        exec printf("imap <silent> %s %s", key, printf(expr, args))
+        if args != rhs
+          let args = substitute(args, '<', '<lt>', 'g')
+          let expr = substitute(rhs, '\(.*\)".\{-}"\(.*\)', '\1%s\2', '')
+          let rhs = printf(expr, args)
+        endif
+        exec printf("imap <silent> %s %s", key, rhs)
       endif
     endfor
     unlet b:captured
@@ -623,14 +631,29 @@ endfunction " }}}
 
   if g:SuperTabCrMapping
     if maparg('<CR>','i') =~ '<CR>'
-      exec "inoremap <script> <cr> " . maparg('<cr>', 'i') . "<c-r>=<SID>SelectCompletion(0)<cr>"
+      let map = maparg('<cr>', 'i')
+      let cr = (map =~? '\(^\|[^)]\)<cr>')
+      if map =~ '<Plug>'
+        let plug = substitute(map, '.\{-}\(<Plug>\w\+\).*', '\1', '')
+        let plug_map = maparg(plug, 'i')
+        let map = substitute(map, '.\{-}\(<Plug>\w\+\).*', plug_map, '')
+      endif
+      exec "inoremap <script> <cr> <c-r>=<SID>SelectCompletion(" . cr . ")<cr>" . map
     else
       inoremap <cr> <c-r>=<SID>SelectCompletion(1)<cr>
     endif
     function! s:SelectCompletion(cr)
       " selecting a completion
       if pumvisible()
-        return "\<space>\<bs>"
+        " ugly hack to let other <cr> mappings for other plugins cooperate
+        " with supertab
+        let b:supertab_pumwasvisible = 1
+        return "\<c-y>"
+      endif
+
+      if exists('b:supertab_pumwasvisible')
+        unlet b:supertab_pumwasvisible
+        return ''
       endif
 
       " not so pleasant hack to keep <cr> working for abbreviations

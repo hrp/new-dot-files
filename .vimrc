@@ -22,6 +22,7 @@ set scrolloff=3
 set backspace=2
 set ruler
 set number
+" set foldmethod=indent
 
 " Better searching
 set ignorecase
@@ -29,6 +30,12 @@ set smartcase
 set incsearch
 set showmatch
 set hlsearch
+
+" Handle screen wackiness with Command-T
+" :set notimeout          " don't timeout on mappings
+" :set ttimeout           " do timeout on terminal key codes
+" :set timeoutlen=100     " timeout after 100 msec
+
 
 " Easy to clear searches
 nnoremap <leader><space> :noh<cr>

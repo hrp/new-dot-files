@@ -60,6 +60,10 @@ export EDITOR=/usr/local/bin/vim
       ;;
   esac
 
+# Turn off XON/XOFF process control to make <CTRL-s> not hang VIM and Command-T
+# See: https://wincent.com/forums/command-t/topics/430
+stty -ixon
+
 
 PS1="${SCREENTITLE}${PS1}"
 
