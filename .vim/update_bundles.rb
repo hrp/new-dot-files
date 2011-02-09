@@ -29,6 +29,9 @@ git_bundles = %w[
   git://github.com/chrismetcalf/vim-autocomplpop.git
   git://github.com/tpope/vim-rails.git
   git://github.com/trapd00r/neverland-vim-theme.git
+  git://github.com/vim-scripts/L9.git
+  git://github.com/vim-scripts/FuzzyFinder.git
+  git://github.com/nathanaelkane/vim-indent-guides.git
 ]
   #  git://github.com/skammer/vim-css-color.git
   #  git://github.com/vim-bundles/fuzzyfinder.git,
@@ -49,6 +52,7 @@ vim_org_scripts = [
 
 require 'fileutils'
 require 'open-uri'
+require 'rubygems'
 require 'colorize'
 
 

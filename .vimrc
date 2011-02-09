@@ -52,6 +52,17 @@ set mouse=a
 " Colors
 set t_Co=256
 colors wombat256
+" set background=dark
+
+" Indent highlighter
+let g:indent_guides_start_level = 2
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 0
+let g:indent_guides_auto_colors = 0
+autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=241
+autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=235
+let g:indent_guides_color_change_percent = 10
+
 
 " Commenting with EnhancedCommentify
 let g:EnhCommentifyRespectIndent = 'Yes'
