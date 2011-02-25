@@ -52,6 +52,7 @@ set mouse=a
 " Colors
 set t_Co=256
 colors wombat256
+" colors vividchalk
 " set background=dark
 
 " Indent highlighter
