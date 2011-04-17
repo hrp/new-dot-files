@@ -75,6 +75,11 @@ hi SpecialComment  guifg=#8a8a8a               gui=bold
 hi Special         guifg=#5fd7ff guibg=#080808
 hi SpecialKey      guifg=#8a8a8a
 
+hi SpellBad        guifg=#ff0000 guibg=#080808  gui=bold
+hi SpellCap        guifg=#ff0000 guibg=#080808  gui=bold
+hi SpellRare       guifg=#ff0000 guibg=#080808  gui=bold
+hi SpellLocal      guifg=#ff0000 guibg=#141414  gui=bold
+
 hi Statement       guifg=#ffff87               gui=bold " my...
 hi StatusLine      guifg=#1c1c1c guibg=#af8700
 hi StatusLineNC    guifg=#1c1c1c guibg=#878700
@@ -95,6 +100,7 @@ hi WarningMsg      guifg=#0000ff guibg=#444444 gui=bold
 hi WildMenu        guifg=#5fd7ff guibg=#000000
 
 hi Comment         guifg=#87875f
+hi ColorColumn                   guibg=#202020
 hi CursorLine                    guibg=#1c1c1c gui=none
 hi CursorColumn                  guibg=#1c1c1c
 hi LineNr          guifg=#626262 guibg=#121212
@@ -166,6 +172,11 @@ if &t_Co > 255
    hi Special         ctermfg=81  ctermbg=232
    hi SpecialKey      ctermfg=245
 
+   hi SpellBad        ctermfg=196 ctermbg=233  cterm=bold
+   hi SpellCap        ctermfg=196 ctermbg=233  cterm=bold
+   hi SpellRare       ctermfg=196 ctermbg=233  cterm=bold
+   hi SpellLocal      ctermfg=196 ctermbg=235  cterm=bold
+
    hi Statement       ctermfg=228               cterm=bold " my...
    hi StatusLine      ctermfg=234 ctermbg=136
    hi StatusLineNC    ctermfg=234 ctermbg=100
@@ -182,10 +193,11 @@ if &t_Co > 255
    hi VertSplit       ctermfg=244 ctermbg=232   cterm=bold
    hi VisualNOS                   ctermbg=238
    hi Visual                      ctermbg=235
-   hi WarningMsg      ctermfg=21 ctermbg=238   cterm=bold
+   hi WarningMsg      ctermfg=21  ctermbg=238   cterm=bold
    hi WildMenu        ctermfg=81  ctermbg=16
 
    hi Comment         ctermfg=101
+   hi ColorColumn                 ctermbg=235
    hi CursorLine                  ctermbg=234   cterm=none
    hi CursorColumn                ctermbg=234
    hi LineNr          ctermfg=241 ctermbg=233

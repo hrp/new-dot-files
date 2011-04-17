@@ -75,6 +75,11 @@ hi SpecialComment  guifg=#8a8a8a               gui=bold
 hi Special         guifg=#5fd7ff guibg=#080808
 hi SpecialKey      guifg=#8a8a8a
 
+hi SpellBad        guifg=#ff0000 guibg=#080808  gui=bold
+hi SpellCap        guifg=#ff0000 guibg=#080808  gui=bold
+hi SpellRare       guifg=#ff0000 guibg=#080808  gui=bold
+hi SpellLocal      guifg=#ff0000 guibg=#141414  gui=bold
+
 hi Statement       guifg=#d78700               gui=bold
 hi StatusLine      guifg=#121212 guibg=#af8700
 hi StatusLineNC    guifg=#080808 guibg=#878700
@@ -95,6 +100,7 @@ hi WarningMsg      guifg=#0000ff guibg=#444444 gui=bold
 hi WildMenu        guifg=#5fd7ff guibg=#000000
 
 hi Comment         guifg=#af875f
+hi ColorColumn                   guibg=#202020
 hi CursorLine                    guibg=#121212 gui=none
 hi CursorColumn                  guibg=#080808
 hi LineNr          guifg=#626262 guibg=#080808
@@ -165,6 +171,11 @@ if &t_Co > 255
    hi Special         ctermfg=81  ctermbg=232
    hi SpecialKey      ctermfg=245
 
+   hi SpellBad        ctermfg=196 ctermbg=232  cterm=bold
+   hi SpellCap        ctermfg=196 ctermbg=232  cterm=bold
+   hi SpellRare       ctermfg=196 ctermbg=232  cterm=bold
+   hi SpellLocal      ctermfg=196 ctermbg=234  cterm=bold
+
    hi Statement       ctermfg=172               cterm=bold
    hi StatusLine      ctermfg=233 ctermbg=136
    hi StatusLineNC    ctermfg=232 ctermbg=100
@@ -185,6 +196,7 @@ if &t_Co > 255
    hi WildMenu        ctermfg=81  ctermbg=16
 
    hi Comment         ctermfg=137
+   hi ColorColumn                 ctermbg=235
    hi CursorLine                  ctermbg=233   cterm=none
    hi CursorColumn                ctermbg=232
    hi LineNr          ctermfg=241 ctermbg=232

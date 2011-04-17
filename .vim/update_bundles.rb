@@ -32,6 +32,9 @@ git_bundles = %w[
   git://github.com/vim-scripts/L9.git
   git://github.com/vim-scripts/FuzzyFinder.git
   git://github.com/nathanaelkane/vim-indent-guides.git
+  git://github.com/mattn/gist-vim.git
+  git://github.com/altercation/vim-colors-solarized.git
+  git://github.com/ervandew/screen.git
 ]
   #  git://github.com/skammer/vim-css-color.git
   #  git://github.com/vim-bundles/fuzzyfinder.git,
@@ -40,7 +43,6 @@ git_bundles = %w[
 
 vim_org_scripts = [
   %w[IndexedSearch 7062  plugin],
-  %w[gist    12732 plugin],
   %w[jquery  12107 syntax],
   %w[taglist 7701  zip],
   %w[ScrollColor 5966    plugin],
@@ -60,8 +62,8 @@ require 'colorize'
 puts "Trashing Pathogen (lookout!)".red
 FileUtils.rm_rf pathogen_dir 
 FileUtils.rm_rf 'autoload'
-puts "  Unpacking Pathogen".blue
-`git clone #{pathogen_url} #{pathogen_dir}`.magenta
+puts "  Unpacking Pathogen".magenta
+`git clone -q #{pathogen_url} #{pathogen_dir}`
 FileUtils.cp_r "#{pathogen_dir}/.", '.'
 FileUtils.rm_rf pathogen_dir
 
@@ -74,7 +76,7 @@ Dir["*"].each {|d| FileUtils.rm_rf d }
 
 git_bundles.each do |url|
   dir = url.split('/').last.sub(/\.git$/, '')
-  puts "  Unpacking #{url} into #{dir}".blue
+  puts "  Unpacking #{url} into #{dir}".yellow
   `git clone -q #{url} #{dir}`.magenta
   FileUtils.rm_rf(File.join(dir, ".git"))
 end
