@@ -15,7 +15,7 @@ export PATH
 
 unset USERNAME
 
-function prompt
+function promptl
 {
 local WHITE="\[\033[1;37m\]"
 local GREEN="\[\033[0;32m\]"
@@ -27,7 +27,24 @@ PS1="${YELLOW}\w${CYAN} $ ${WHITE} "
 export PS1="
 ${GRAY}\$(~/.rvm/bin/rvm-prompt i v) $PS1"
 }
-prompt
+function promptm
+{
+local WHITE="\[\033[1;37m\]"
+local GREEN="\[\033[0;32m\]"
+local CYAN="\[\033[0;36m\]"
+local GRAY="\[\033[0;37m\]"
+local BLUE="\[\033[0;34m\]"
+local YELLOW="\[\033[1;33m\]"
+PS1="${CYAN}\w${GREEN} $ ${WHITE} "
+export PS1="
+${GRAY}\$(~/.rvm/bin/rvm-prompt i v) $PS1"
+}
+
+if [[ $OSTYPE == 'linux-gnu' ]]; then
+  promptl
+elif [[ $OSTYPE == 'darwin10.0' ]]; then
+  promptm 
+fi
 
 
 echo ""
