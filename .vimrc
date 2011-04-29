@@ -9,20 +9,21 @@ filetype plugin indent on
 " Set backup directory for ~ files
 set backup
 set backupdir=~/tmp/.vim/backup,/tmp
-set directory=~/tmp/.vim/tmp
+set directory=~/tmp/.vim/tmp,/tmp
 
 " General settings
 syntax on
 set expandtab
 set autoindent
 set sts=2
+set tabstop=2
 set shiftwidth=2
 set scrolljump=5
 set scrolloff=3
 set backspace=2
 set ruler
 set number
-" set foldmethod=indent
+set list listchars=tab:\ \ ,trail:·
 
 " Better searching
 set ignorecase
@@ -51,9 +52,7 @@ set mouse=a
 
 " Colors
 set t_Co=256
-colors wombat256
-" colors vividchalk
-" set background=dark
+colors ir_black
 
 " Indent highlighter
 let g:indent_guides_start_level = 2
