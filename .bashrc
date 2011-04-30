@@ -23,28 +23,24 @@ alias mv='mv -i'
 # easier to jump around
 alias ..='cd ..'
 
-# vim7 hackety hack
-alias vi=/usr/local/bin/vim
-# alias vim7='~/tools/vim/bin/vim'
-# alias vi7='~/tools/vim/bin/vim'
-# alias vi='~/tools/vim/bin/vim'
-
-# handle ruby
-# alias ruby=ruby19
-# alias irb=irb19
-# alias gem=gem19
+# vim alias
+alias vi=vim
 
 # force colors on ls
-alias lls='ls'
-alias lsb='ls --color=always'
-alias ls='ls --color=always -B'
+if [[ $OSTYPE == 'linux-gnu' ]]; then
+  alias ls='ls --color=always -B'
+elif [[ $OSTYPE == 'darwin10.0' ]]; then
+  alias ls='ls -G'
+fi
+
+alias ll='ls -l'
 
 # force colors on grep
 alias grep='grep --color=AUTO'
 alias fgrep='fgrep --color=AUTO'
 
 # set default editor
-export EDITOR=/usr/local/bin/vim
+export EDITOR=/usr/bin/vim
 
 # Set the window title for screen
   case $TERM in

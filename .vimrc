@@ -10,7 +10,7 @@ set encoding=utf-8
 " Set backup directory for ~ files
 set backup
 set backupdir=~/tmp/.vim/backup,/tmp
-set directory=~/tmp/.vim/tmp
+set directory=~/tmp/.vim/tmp,/tmp
 
 " General settings and whitespace
 syntax on
@@ -18,16 +18,21 @@ filetype plugin indent on
 set expandtab
 set autoindent
 set sts=2
+set tabstop=2
 set shiftwidth=2
 set scrolljump=5
 set scrolloff=3
 set backspace=2
 set ruler
 set number
+<<<<<<< HEAD
 " Turn on relative number support
 " set relativenumber
 set list listchars=tab:\ \ ,trail:-
 " set foldmethod=indent
+=======
+set list listchars=tab:\ \ ,trail:·
+>>>>>>> 6e0ce9c12669237f07a4d99ea3c384ce8ba4f4d6
 
 " Better searching
 set ignorecase
@@ -60,8 +65,12 @@ set laststatus=2
 
 " Colors
 set t_Co=256
+<<<<<<< HEAD
 " set background=dark
 colors jellybeans
+=======
+colors ir_black
+>>>>>>> 6e0ce9c12669237f07a4d99ea3c384ce8ba4f4d6
 
 " Indent highlighter
 let g:indent_guides_start_level = 2
