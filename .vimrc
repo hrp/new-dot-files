@@ -28,11 +28,8 @@ set number
 <<<<<<< HEAD
 " Turn on relative number support
 " set relativenumber
-set list listchars=tab:\ \ ,trail:-
-" set foldmethod=indent
-=======
 set list listchars=tab:\ \ ,trail:·
->>>>>>> 6e0ce9c12669237f07a4d99ea3c384ce8ba4f4d6
+" set foldmethod=indent
 
 " Better searching
 set ignorecase
@@ -65,12 +62,8 @@ set laststatus=2
 
 " Colors
 set t_Co=256
-<<<<<<< HEAD
 " set background=dark
 colors jellybeans
-=======
-colors ir_black
->>>>>>> 6e0ce9c12669237f07a4d99ea3c384ce8ba4f4d6
 
 " Indent highlighter
 let g:indent_guides_start_level = 2
