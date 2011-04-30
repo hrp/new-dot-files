@@ -1,0 +1,10 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =8
+let g:netrw_dirhist_1='/srv/hparmar/svn/deep_rule_editor/trunk/app'
+let g:netrw_dirhist_2='/srv/hparmar/svn/vsatools/branches/hiten/sandbox/gems/capistrano-truveo/lib'
+let g:netrw_dirhist_3='/srv/hparmar/.vim'
+let g:netrw_dirhist_4='/srv/hparmar/svn/rails/deep_rule_editor/trunk/.yardoc'
+let g:netrw_dirhist_5='/srv/hparmar/svn/rails/deep_rule_editor/trunk/public/doc'
+let g:netrw_dirhist_6='/srv/hparmar/svn/rails/vsatools_doc/trunk/.bundle'
+let g:netrw_dirhist_7='/srv/hparmar/svn/vsatools/branches/hiten/sandbox/annyong/lib/annyong'
+let g:netrw_dirhist_8='/srv/hparmar/svn/vsatools/branches/hiten/sandbox/gems/annyong/lib'

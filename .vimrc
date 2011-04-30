@@ -4,15 +4,17 @@ set nocompatible
 filetype off
 " call pathogen#helptags()
 call pathogen#runtime_append_all_bundles()
-filetype plugin indent on
+
+set encoding=utf-8
 
 " Set backup directory for ~ files
 set backup
 set backupdir=~/tmp/.vim/backup,/tmp
 set directory=~/tmp/.vim/tmp
 
-" General settings
+" General settings and whitespace
 syntax on
+filetype plugin indent on
 set expandtab
 set autoindent
 set sts=2
@@ -22,6 +24,9 @@ set scrolloff=3
 set backspace=2
 set ruler
 set number
+" Turn on relative number support
+" set relativenumber
+set list listchars=tab:\ \ ,trail:-
 " set foldmethod=indent
 
 " Better searching
@@ -30,21 +35,25 @@ set smartcase
 set incsearch
 set showmatch
 set hlsearch
+" Easy to clear searches
+nnoremap <leader><space> :noh<cr>
+" Make text highlighting nicer
+set hl=l:Visual
+
+" allow backspacing over everything in insert mode
+set backspace=indent,eol,start
+
 
 " Handle screen wackiness with Command-T
 " :set notimeout          " don't timeout on mappings
 " :set ttimeout           " do timeout on terminal key codes
 " :set timeoutlen=100     " timeout after 100 msec
 
-
-" Easy to clear searches
-nnoremap <leader><space> :noh<cr>
-
 " Turn on mouse support in xterm
 set mouse=a
 
-" Turn on relative number support
-" set relativenumber
+" Status bar
+set laststatus=2
 
 " Turn on undo file
 " set undofile
@@ -52,7 +61,7 @@ set mouse=a
 " Colors
 set t_Co=256
 " set background=dark
-colors wombat256
+colors jellybeans
 
 " Indent highlighter
 let g:indent_guides_start_level = 2
@@ -63,17 +72,11 @@ autocmd VimEnter,Colorscheme * :hi IndentGuidesOdd  guibg=red   ctermbg=241
 autocmd VimEnter,Colorscheme * :hi IndentGuidesEven guibg=green ctermbg=235
 let g:indent_guides_color_change_percent = 10
 
-
 " Commenting with EnhancedCommentify
 let g:EnhCommentifyRespectIndent = 'Yes'
 let g:EnhCommentifyPretty = 'Yes'
 let g:EngCommentifyMultiPartBlocks = 'Yes'
 let g:EnhCommentifyUseBlockIndex = 'Yes'
-
-
-" Obvious Mode
-set laststatus=2
-" let g:obviousModeInsertHi = 'term=reverse ctermbg=1'
 
 " VSA dictionary for autocomplete
 set dictionary+=/home/hparmar/.vim/vsa_dict.txt
@@ -87,8 +90,8 @@ autocmd FileType xml set omnifunc=xmlcomplete#CompleteTags
 autocmd FileType php set omnifunc=phpcomplete#CompletePHP
 autocmd FileType c set omnifunc=ccomplete#Complete
 
-" Make text highlighting nicer
-set hl=l:Visual
+" Thorfile, Rakefile, Vagrantfile and Gemfile are Ruby
+au BufRead,BufNewFile {Gemfile,Rakefile,Vagrantfile,Thorfile,config.ru} set ft=ruby
 
 " Open and close all the three plugins on the same time 
 " nmap <F8>   :TrinityToggleAll<CR> 
@@ -107,6 +110,7 @@ let g:NERDSpaceDelims=1
 let g:NERDRemoveExtraSpaces=1
 let g:NERDDefaultNesting=0
 let g:NERDTreeWinPos = 'right'
+let NERDTreeIgnore=['\.rbc$', '\~$']
 
 " Set paste mode
 nnoremap <F12> :set invpaste paste?<CR>
